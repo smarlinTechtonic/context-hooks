@@ -1,12 +1,15 @@
 // ThemeContextProvider and AuthContextProvider wrap children components who can then access context
+// Ditto for BookContextProvider and MovieContextProvider
 
 import React from 'react';
 import Navbar from './components/Navbar';
 import BookList from './components/BookList';
+import SongList from './components/SongList';
+import MovieList from './components/MovieList';
 import ThemeContextProvider from './contexts/ThemeContext';
 import AuthContextProvider from './contexts/AuthContext';
-import SongList from './components/SongList';
-import NewSongForm from './components/NewSongForm';
+import BookContextProvider from './contexts/BookContext';
+import MovieContextProvider from './contexts/MovieContext';
 
 function App() {
   return (
@@ -14,11 +17,15 @@ function App() {
     <ThemeContextProvider>
       <AuthContextProvider>
         <Navbar />
-        <BookList />
+        <BookContextProvider>
+          <BookList />
+        </BookContextProvider>
+        <MovieContextProvider>
+          <MovieList />
+        </MovieContextProvider>
       </AuthContextProvider>
-      </ThemeContextProvider>
-
       <SongList />
+    </ThemeContextProvider>
     </div>
   );
 }

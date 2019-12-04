@@ -1,3 +1,5 @@
+// This is a stateless functional component and uses the useState react hook
+
 import React, { useState } from 'react';
 
 const NewSongForm = ({ addSong }) => {
